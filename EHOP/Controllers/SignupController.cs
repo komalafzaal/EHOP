@@ -4,20 +4,21 @@ using System.Diagnostics;
 
 namespace EHOP.Controllers
 {
-    public class HomeController : Controller
+    public class SignupController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<SignupController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public SignupController(ILogger<SignupController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult homePage()
+        public IActionResult Signup()
         {
             return View();
         }
 
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

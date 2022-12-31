@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth</title>
+    <link rel="Stylesheet" href="@Href("~/css/home.css")" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+    <!-- navbar -->
+   <nav class = "navbar navbar-expand-md text-white bg-dark py-4 fixed-top">
+        <div class = "container">
+            <a class = "col-3 navbar-brand justify-content-between align-items-center order-lg-0" href = "/Home/ShowResult">
+                <span class="text-white">EHOP</span>
+            </a>
+
+            <button class = " bg-white navbar-light navbar-toggler border-0 m-sm-auto" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+                <span class = "navbar-toggler-icon"></span>
+            </button>
+
+            <div class = "col-9 collapse navbar-collapse " id = "navMenu">
+                <ul class = "navbar-nav mx-auto text-center">
+                   <li class = "nav-item px-3 py-2">
+                        <a class = "nav-link text-white" href = "/Home/homePage">HOME</a>
+                    </li>
+                    <li class = "nav-item px-3 py-2">
+                        <a class = "nav-link  text-white" href="/Product/products">PRODUCTS</a>
+                    </li>
+
+                    <li class = "nav-item px-3 py-2">
+                        <a class = "nav-link  text-white" href = "/AboutUs/aboutUs">ABOUT US</a>
+                    </li>
+                    <li class = "nav-item px-3 py-2 border-0">
+                        <a class = "nav-link  text-white" href = "/AboutUs/contactUs">CONTACT US</a>
+                    </li>
+
+                     <li class = "nav-item px-3 py-2 border-0">
+                        <a class = "nav-link  text-white" href = "/Cart/showCart">CART</a>
+                    </li>
+                     <li class = "nav-item px-3 py-2 border-0 fa fa-search">
+                        <a class = "nav-link  text-white" href = "/Product/Search">SEARCH</a>
+                    </li>
+                    <li class = "nav-item px-3 py-2 border-0">
+                        <a href = "/Login/Login" class = "btn col-s">Sign Out</a>
+
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+     <div>
+            @RenderBody();
+    </div>
+
+
+</body>
+</head>
+</html>
+
+
