@@ -7,7 +7,7 @@ section {
 }
 #footer {
     background-color: #343a40 !important;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;

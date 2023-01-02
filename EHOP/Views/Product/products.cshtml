@@ -1,11 +1,211 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "~/Views/Shared/_layoutHome.cshtml";
+    ViewData["Title"] = "Products";
 }
 <html>
 
 <body>
-    <h1>products pagee</h1>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="#Women">WOMEN</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#Men">MEN</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#Electronics">ELECTRONICS</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#Beauty">BEAUTY</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#HD">HOME AND DECOR</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+      <section id = "Women" class = "py-5">
+        <div class = "container" style = "padding-top: 0px;">
+            <div class = " text-center">
+                <h2 class = "position-relative ">WOMEN</h2>
+            </div>
+            <div class = "row ">
+                 <div class = "collection-list mt-4 row gx-0 gy-3">
+           
+                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/logo.png" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                                @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id = "Men" class = "py-5">
+        <div class = "container" style = "padding-top: 0px;">
+            <div class = " text-center">
+                <h2 class = "position-relative ">MEN</h2>
+            </div>
+            <div class = "row ">
+                 <div class = "collection-list mt-4 row gx-0 gy-3">
+
+                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                                @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id = "Electronics" class = "py-5">
+        <div class = "container" style = "padding-top: 0px;">
+            <div class = " text-center">
+                <h2 class = "position-relative ">ELECTRONICS</h2>
+            </div>
+            <div class = "row ">
+                 <div class = "collection-list mt-4 row gx-0 gy-3">
+
+                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id = "Beauty" class = "py-5">
+        <div class = "container" style = "padding-top: 0px;">
+            <div class = " text-center">
+                <h2 class = "position-relative ">BEAUTY</h2>
+            </div>
+            <div class = "row ">
+                 <div class = "collection-list mt-4 row gx-0 gy-3">
+
+                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id = "HD" class = "py-5">
+        <div class = "container" style = "padding-top: 0px;">
+            <div class = " text-center">
+                <h2 class = "position-relative ">HOME AND DECOR</h2>
+            </div>
+            <div class = "row ">
+                 <div class = "collection-list mt-4 row gx-0 gy-3">
+
+                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+
+
+                        <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                        <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                        <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                        <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                            <div class = "collection-img position-relative">
+                                <img src = "../images/bg1.jpg" class = "w-100">
+                            </div>
+                            <div class = "text-center">
+
+                                <p class = "text-capitalize my-1">LOGO</p>
+                                <span class = "fw-bold">$ $445</span><br>
+                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                            @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 </body>
 </html>

@@ -1,4 +1,6 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function addToCart(id) {
+	var addToCartButton = document.getElementById("addToCart-" + id);
+	document.getElementById("addToCart-" + id).innerHTML = "";
+	document.getElementById("addToCart-" + id).innerHTML = "Added";
+	document.getElementById("addToCart-" + id).disabled = true;
+}
