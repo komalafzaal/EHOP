@@ -13,13 +13,32 @@ namespace EHOP.Controllers
             _logger = logger;
         }
 
-        public IActionResult Signup()
+        public IActionResult BuyerSignup()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult BuyerSignup(Buyer b)
+        {
+            if (ModelState.IsValid)
+            {
+                EhopContext db = new EhopContext();
+                using (db)
+                {
+                    db.Buyers.Add(b);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.b = "Registered Succesfully!";
+            }
+            return View();
+        }
+
+
+
 
      
-
+    
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

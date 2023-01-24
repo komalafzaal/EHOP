@@ -17,14 +17,14 @@ html, body {
 }
 
 .card {
-    height: 370px;
+    height: auto;
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
     background-color: rgba(0,0,0,.9) !important;
 }
 
-.social_icon span {
+/*.social_icon span {
     font-size: 60px;
     margin-left: 10px;
     color: #FFC312;
@@ -33,7 +33,7 @@ html, body {
     .social_icon span:hover {
         color: white;
         cursor: pointer;
-    }
+    }*/
 
 .card-header h3 {
     text-align: center;
@@ -87,3 +87,7 @@ input:focus {
     .links a {
         margin-left: 4px;
     }
+h6{
+    color:white;
+    text-align:center;
+}
