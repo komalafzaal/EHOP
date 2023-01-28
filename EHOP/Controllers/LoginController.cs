@@ -1,6 +1,7 @@
 ﻿using EHOP.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net;
 using System.Security.Cryptography.Xml;
 
 namespace EHOP.Controllers
@@ -17,18 +18,32 @@ namespace EHOP.Controllers
         
         public IActionResult BuyerLogin()
         {
-            return View();
+            object data;
+            if (HttpContext.Request.Cookies.ContainsKey("User"))
+            {
+                string? firstVisitedDateTime = HttpContext.Request.Cookies["User"];
+                data = "Welcome back " + firstVisitedDateTime;
+            }
+            else
+            {
+                data = "visiting first time";
+                HttpContext.Response.Cookies.Append("User",data.ToString());
+            }
+            return View(data);
         }
         [HttpPost]
         public IActionResult BuyerLogin(Buyer b)
         {
             EhopContext db = new EhopContext();
-            using (db)
+            using (db)  
             {
                 var user = db.Buyers.Single(u => u.Email == b.Email && u.Password == b.Password);
                 if (user != null)
                 {
-                    //cookies wla kam krna
+                    HttpContext.Response.Cookies.Append("User", b.Email.ToString());
+                   
+                    //string cookie= HttpContext.Request.Cookies["User"];
+                    //ViewBag.cookie = cookie;
                     return RedirectToAction(actionName: "HomePage", controllerName: "Home");
                 }
                 else
