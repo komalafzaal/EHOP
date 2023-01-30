@@ -37,19 +37,19 @@ namespace EHOP.Controllers
             EhopContext db = new EhopContext();
             using (db)  
             {
-                var user = db.Buyers.Single(u => u.Email == b.Email && u.Password == b.Password);
-                if (user != null)
-                {
-                    HttpContext.Response.Cookies.Append("User", b.Email.ToString());
-                   
-                    //string cookie= HttpContext.Request.Cookies["User"];
-                    //ViewBag.cookie = cookie;
-                    return RedirectToAction(actionName: "HomePage", controllerName: "Home");
-                }
-                else
-                {
-                    ViewBag.b = "Incorrect Email and Password";
-                }
+                  var user = db.Buyers.Single(u => u.Email == b.Email && u.Password == b.Password);
+                    if (user != null)
+                    {
+                        HttpContext.Response.Cookies.Append("User", b.Email.ToString());
+                        //string cookie= HttpContext.Request.Cookies["User"];
+                        //ViewBag.cookie = cookie;
+                        return RedirectToAction(actionName: "HomePage", controllerName: "Home");
+                    }
+                    else
+                    {
+                        ViewBag.b = "Incorrect Email and Password";
+                    }
+               
 
             }
             return View();

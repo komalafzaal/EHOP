@@ -25,11 +25,20 @@ namespace EHOP.Controllers
                 EhopContext db = new EhopContext();
                 using (db)
                 {
-                    db.Buyers.Add(b);
-                    db.SaveChanges();
+                    if (db.Buyers.Where(u => u.Email == b.Email).Count() > 0)
+                    {
+                        ViewBag.b = "Email already exsists";
+                    }
+                    else
+                    {
+                        db.Buyers.Add(b);
+                        db.SaveChanges();
+                        ModelState.Clear();
+                        ViewBag.b = "Registered Succesfully!";
+                    }
+                  
                 }
-                ModelState.Clear();
-                ViewBag.b = "Registered Succesfully!";
+              
             }
             return View();
         }
