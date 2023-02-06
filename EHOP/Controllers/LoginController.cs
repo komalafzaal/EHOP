@@ -31,46 +31,36 @@ namespace EHOP.Controllers
             }
             return View(data);
         }
+
         [HttpPost]
         public IActionResult BuyerLogin(Buyer b)
         {
             EhopContext db = new EhopContext();
             using (db)  
             {
-                  var user = db.Buyers.Single(u => u.Email == b.Email && u.Password == b.Password);
-                    if (user != null)
-                    {
-                        HttpContext.Response.Cookies.Append("User", b.Email.ToString());
-                        //string cookie= HttpContext.Request.Cookies["User"];
-                        //ViewBag.cookie = cookie;
-                        return RedirectToAction(actionName: "HomePage", controllerName: "Home");
-                    }
-                    else
-                    {
-                        ViewBag.b = "Incorrect Email and Password";
-                    }
-               
-
+                if (db.Buyers.Where(u => u.Email == b.Email && u.Password == b.Password).Count() == 0)
+                   // var user = db.Buyers.Single(u => u.Email == b.Email && u.Password == b.Password);
+                //if (user==null)
+                {
+                    ViewBag.b = "Incorrect Email or Password";
+                }
+                else
+                {
+                    HttpContext.Response.Cookies.Append("User", b.Email.ToString());
+                    //string cookie= HttpContext.Request.Cookies["User"];
+                    //ViewBag.cookie = cookie;
+                    return RedirectToAction(actionName: "HomePage", controllerName: "Home");
+                   
+                }
             }
             return View();
-
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public IActionResult Remove()
+        {
+            HttpContext.Response.Cookies.Delete("User");
+            return View("BuyerLogin");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

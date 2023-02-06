@@ -2,10 +2,27 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Layout = "~/Views/Shared/_layout.cshtml";
+     ViewData["Title"] = "About Us";
 }
 <html>
 
 <body>
-    <h1>About Us pagee</h1>
+    <section id = "about" class = "py-5">
+        <div class = "container">
+            <div class = "row gy-lg-5 align-items-center" style = "padding-top: 104px;">
+                <div class = "col-lg-6 order-lg-1 text-center text-lg-start">
+                    <div class = "pt-3 pb-5">
+                        <h2 class = "position-relative  ms-4">About Us</h2>
+                    </div>
+                    <p class = "lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ipsam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga blanditiis, modi exercitationem quae quam eveniet! Minus labore voluptatibus corporis recusandae accusantium velit, nemo, nobis, nulla ullam pariatur totam quos.</p>
+                </div>
+                <div class = "col-lg-6 order-lg-0">
+                    <img src = "~/images/about.jpg" alt = "about us image" class = "img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html
