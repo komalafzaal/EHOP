@@ -55,7 +55,7 @@ namespace EHOP.Controllers
             p.imagename = fileName;
             if (ModelState.IsValid)
             {
-                FullAuditModel fam = new FullAuditModel();
+                //FullAuditModel fam = new FullAuditModel();
                 EhopContext db = new EhopContext();
                 using (db)
                 {

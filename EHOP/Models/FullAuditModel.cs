@@ -1,16 +1,14 @@
-﻿using DbFirst.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Security.Principal;
+﻿using EHOP.Models.Interfaces;
 
-namespace DbFirst;
-
-public abstract class FullAuditModel : IIdentityModel, IAuditedModel, IActivatableModel
+namespace EHOP.Models
 {
-    public int Id { get; set; }
-    public string CreatedByUserId { get; set; }
-    public DateTime CreatedDate { get; set; }
-    public string LastModifiedUserId { get; set; }
-    public DateTime? LastModifiedDate { get; set; }
-    public bool IsActive { get; set; }
+    public abstract class FullAuditModel : IIdentityModel, IAuditedModel, IActivatableModel
+    {
+        public int Id { get; set; }
+        public string CreatedByUserId { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string LastModifiedUserId { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
+        public bool IsActive { get; set; }
+    }
 }

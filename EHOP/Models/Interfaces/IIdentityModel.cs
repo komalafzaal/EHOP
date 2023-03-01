@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DbFirst.Interfaces
+﻿
+namespace EHOP.Models.Interfaces
 {
     public interface IIdentityModel
     {
