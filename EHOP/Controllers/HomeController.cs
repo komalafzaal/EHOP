@@ -30,8 +30,10 @@ namespace EHOP.Controllers
         }
 
         [HttpPost]
-        public IActionResult HomePageSeller(List<IFormFile> postedFiles)
+
+        public IActionResult HomePageSeller(Product p, List<IFormFile> postedFiles)
         {
+            var fileName = "";
             string wwwPath = Directory.GetCurrentDirectory();
             string path = Path.Combine(wwwPath, "uploads");
             if (!Directory.Exists(path))
@@ -41,12 +43,46 @@ namespace EHOP.Controllers
 
             foreach (var file in postedFiles)
             {
-                var fileName = Path.GetFileName(file.FileName);
+                fileName = Path.GetFileName(file.FileName);
                 var pathWithFileName = Path.Combine(path, fileName);
                 using (FileStream stream = new FileStream(pathWithFileName, FileMode.Create))
                 {
                     file.CopyTo(stream);
                     ViewBag.Message = "file uploaded successfully";
+
+                }
+            }
+            p.imagename = fileName;
+            if (ModelState.IsValid)
+            {
+                FullAuditModel fam = new FullAuditModel();
+                EhopContext db = new EhopContext();
+                using (db)
+                {
+                    //db.Products.Add(p);
+                    //db.SaveChanges();
+                    //ModelState.Clear();
+                    //fam.createdByUserName = fam.LastModifiedUserId = HttpContext.Request.Cookies["User"];
+                    //fam.lastModifiedDate = fam.CreatedDate = DateTime.Now;
+                    //fam.IsActive = true;
+                    //ViewBag.b = "Registered Succesfully!";
+                    //db.FullAuditModel.Add(fam);
+                    //db.SaveChanges();
+
+
+                    //if (db.Products.Where(u => u.Description == p.Description).Count() > 0)
+                    //{
+                    //    ViewBag.b = "Email already exsists";
+                    //}
+                    //else
+                    //{
+                    //    db.Sellers.Add(b);
+                    //    db.SaveChanges();
+                    //    ModelState.Clear();
+                    //    ViewBag.b = "Registered Succesfully!";
+                    //}
+
+                
                 }
             }
             return View();

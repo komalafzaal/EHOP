@@ -16,6 +16,8 @@ public partial class EhopContext : DbContext
     }
 
     public virtual DbSet<Buyer> Buyers { get; set; }
+    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<Cart> Carts { get; set; }
 
     public virtual DbSet<Seller> Sellers { get; set; }
 
