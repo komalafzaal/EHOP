@@ -1,4 +1,6 @@
 ﻿using EHOP.Models.Interfaces;
+using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EHOP.Models
 {
@@ -17,6 +19,11 @@ namespace EHOP.Models
         public string? Category { get; set; }
 
         public int Quantity { get; set; }
+
+        //[ForeignKey("sellerId")]
+        public int SellerId { get; set;}
+        //public virtual Seller Seller { get; set; }
+
     }
 
 }

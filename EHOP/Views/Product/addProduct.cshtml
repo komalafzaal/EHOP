@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_layoutHome.cshtml";
+    ViewData["Title"] = "Add Product";
+}
+
+<div class= "container row-cols-6">
+
+    <form method="post" enctype="multipart/form-data" asp-action="addProduct" asp-controller="Product">
+    <div class="form-group">
+        <label for="exampleProductName">Product Name </label>
+        <input type="text" class="form-control" name="Name" placeholder="Product Name"
+    </div>
+    <div class="form-group">
+        <label for="exampleProductDes">Product Description </label>
+        <input type="text" class="form-control" name="Description" placeholder="Product Description"
+    </div>
+    <div class="form-group">
+        <label for="exampleProductPrice">Product Price </label>
+        <input type="text" class="form-control" name="Price" placeholder="Product Price"
+    </div>
+   <div class="form-group">
+      <label for="exampleProductCategory">Product Category</label>
+      <select class="form-control" name="Category">
+        <option value="Women">Women</option>
+        <option value="Men">Men</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Beauty">Beauty</option>
+        <option value="HomeandDecor">Home and Decor</option>
+  </select>
+</div>
+
+
+    <div class="form-group">
+        <label for="exampleProductQuantity">Quantity </label>
+        <input type="text" class="form-control" name="Quantity" placeholder="Quantity"
+    </div>
+@*    <button type="submit" class="btn btn-primary">Submit</button>
+*@
+    <span>Select File: </span>
+    <input type="file" name="postedFiles" multiple />
+    <br />
+    <button type="submit" class="btn btn-primary">ADD PRODUCT</button>
+</form>
+
+<span>@ViewBag.Message</span>
+</div>

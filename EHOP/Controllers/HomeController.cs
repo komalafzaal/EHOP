@@ -2,18 +2,26 @@
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using EHOP.Models.Interfaces;
 using System.Data;
 using System.Diagnostics;
 using System.Web;
+using EHOP.Models.Repository;
 
 namespace EHOP.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly IWebHostEnvironment Environment;
 
+
         public IActionResult homePage()
+        {
+            return View();
+        }
+        public IActionResult HomePageSeller()
         {
             return View();
         }
@@ -24,48 +32,6 @@ namespace EHOP.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult HomePageSeller()
-        {
-            return View();
-        }
-
-        [HttpPost]
-
-        public IActionResult HomePageSeller(Product p,List<IFormFile> postedFiles)
-        {
-            var fileName="";
-            string wwwPath = Directory.GetCurrentDirectory();
-            string path = Path.Combine(wwwPath, "uploads");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            foreach (var file in postedFiles)
-            {
-                fileName = Path.GetFileName(file.FileName);
-                var pathWithFileName = Path.Combine(path, fileName);
-                using (FileStream stream = new FileStream(pathWithFileName, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                    ViewBag.Message = "file uploaded successfully";
-                    
-                }
-            }
-            p.imagename = fileName;
-            if (ModelState.IsValid)
-            {
-                EhopContext db = new EhopContext();
-                using (db)
-                {
-                    db.Products.Add(p);
-                    db.SaveChanges();
-                    ModelState.Clear();
-				}
-
-            }
-            return View();
-        }
-
     }
+        
 }

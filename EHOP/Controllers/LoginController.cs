@@ -32,6 +32,7 @@ namespace EHOP.Controllers
             return View(data);
         }
 
+
         [HttpPost]
         public IActionResult BuyerLogin(Buyer b)
         {
@@ -56,7 +57,44 @@ namespace EHOP.Controllers
             return View();
         }
 
-        public IActionResult Remove()
+		public IActionResult SellerLogin()
+		{
+            object data;
+            if (HttpContext.Request.Cookies.ContainsKey("User"))
+            {
+                string? firstVisitedDateTime = HttpContext.Request.Cookies["User"];
+                data = "Welcome back " + firstVisitedDateTime;
+            }
+            else
+            {
+                data = "visiting first time";
+                HttpContext.Response.Cookies.Append("User", data.ToString());
+            }
+            return View();
+		}
+
+		[HttpPost]
+		public IActionResult SellerLogin(Seller b)
+		{
+            EhopContext db = new EhopContext();
+            using (db)
+            {
+                Console.WriteLine("Entered the function");
+                if (db.Sellers.Where(u => u.Email == b.Email && u.Password == b.Password).Count() == 0)
+                {
+					ViewBag.b = "Incorrect Email or Password";
+                }
+                else
+                {
+                    HttpContext.Response.Cookies.Append("User", b.Email.ToString());
+                    HttpContext.Response.Cookies.Append("Id", b.Id.ToString());
+                    return RedirectToAction(actionName: "HomePageSeller", controllerName: "Home");
+                }
+            }
+            return View();
+		}
+
+		public IActionResult Remove()
         {
             HttpContext.Response.Cookies.Delete("User");
             return View("BuyerLogin");

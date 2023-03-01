@@ -1,7 +1,12 @@
+using EHOP.Models.Interfaces;
+using EHOP.Models.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IProduct, ProductRepository>();
 
 var app = builder.Build();
 
@@ -22,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=HomePageSeller}/{id?}");
+    pattern: "{controller=Login}/{action=BuyerLogin}/{id?}");
 
 app.Run();

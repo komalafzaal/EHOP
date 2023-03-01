@@ -42,13 +42,37 @@ namespace EHOP.Controllers
             }
             return View();
         }
+		public IActionResult SellerSignup()
+		{
+			return View();
+		}
 
+		[HttpPost]
+		public IActionResult SellerSignup(Seller b)
+		{
+			if (ModelState.IsValid)
+			{
+				EhopContext db = new EhopContext();
+				using (db)
+				{
+					if (db.Sellers.Where(u => u.Email == b.Email).Count() > 0)
+					{
+						ViewBag.b = "Email already exsists";
+					}
+					else
+					{
+						db.Sellers.Add(b);
+						db.SaveChanges();
+						ModelState.Clear();
+						ViewBag.b = "Registered Succesfully!";
+					}
 
+				}
 
-
-     
-    
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+			}
+			return View();
+		}
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -3,7 +3,10 @@
     ViewData["Title"] = "Products";
 }
 <html>
+@using EHOP.Models
+@model List<EHOP.Models.Product>
 
+ 
 <body>
 @section ProdNavbar{
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -31,6 +34,7 @@
         </ul>
     </div>
 </nav>}
+
       <section id = "Women" class = "py-5">
         <div class = "container" style = "padding-top: 0px;">
             <div class = " text-center">
@@ -38,19 +42,24 @@
             </div>
             <div class = "row ">
                  <div class = "collection-list mt-4 row gx-0 gy-3">
-           
-                     <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
-                            <div class = "collection-img position-relative">
-                                <img src = "../images/logo.png" class = "w-100">
-                            </div>
-                            <div class = "text-center">
+                     @foreach(var a in Model)
+                     {
+                        if (@a.Category == "Women" || @a.Category == "women")
+                        {
+                            <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                                <div class = "collection-img position-relative">
+                                    <img src="~/Uploads/@a.imagename" class="w-100">
+                                </div>
+                                <div class = "text-center">
 
-                                <p class = "text-capitalize my-1">LOGO</p>
-                                <span class = "fw-bold">$ $445</span><br>
-                                <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
-                                @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                                    <p class="text-capitalize my-1">@a.Name</p>
+                                    <span class = "fw-bold">$ @a.Price</span><br>
+                                    <strong><button class = "btn-warning" type ="button">ADD TO CART</button></strong>
+                                    @*<button type="button"  onclick="sendData(this,'@a.productName','@a.imagename','@a.price','@a.productType')" class = "btn btn-primary mt-3">Add to Cart</button>*@
+                                </div>
                             </div>
-                        </div>
+                        }
+                    }
                 </div>
             </div>
         </div>

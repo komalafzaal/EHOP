@@ -71,7 +71,6 @@ public partial class EhopContext : DbContext
     public override int SaveChanges()
     {
         var tracker = ChangeTracker;
-
         foreach (var entry in tracker.Entries())
         {
             if (entry.Entity is FullAuditModel)
@@ -102,3 +101,4 @@ public partial class EhopContext : DbContext
         return base.SaveChanges();
     }
 }
+

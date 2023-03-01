@@ -3,7 +3,7 @@ using EHOP.Models;
 
 namespace EHOP.Models
 {
-    public partial class Buyer : FullAuditModel
+    public class Buyer : FullAuditModel
     {
         public string? Name { get; set; }
 
