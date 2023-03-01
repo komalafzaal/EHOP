@@ -45,7 +45,7 @@ namespace EHOP.Models.Repository
 
         public List<Product> GetElectronicsProducts()
         {
-            List<Product> p = new List<Product>();
+            List<Product> p = new List<Product>();  
 
             var db = new EhopContext();
 

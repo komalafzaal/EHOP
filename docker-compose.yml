@@ -1,0 +1,29 @@
+version: '3.4'
+
+networks:
+  ehopnetwork: 
+
+services:
+  ehopDB:
+    container_name: ehopDB
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+     - 8002:1433
+    environment:
+     - ACCEPT_EULA=Y
+     - MSSQL_SA_PASSWORD=komalmaheen123#
+    networks:
+     - ehopnetwork
+
+  ehop:
+    container_name: ehop
+    ports:
+     - 8001:80 
+    image: ${DOCKER_REGISTRY-}ehop
+    build:
+      context: .
+      dockerfile: EHOP/Dockerfile
+    depends_on:
+     - ehopDB
+    networks:
+     - ehopnetwork
