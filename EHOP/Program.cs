@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IProduct, ProductRepository>();
+builder.Services.AddScoped<ISeller, SellerRepository>();
 
 var app = builder.Build();
 
@@ -27,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=BuyerLogin}/{id?}");
+    pattern: "{controller=Login}/{action=SellerLogin}/{id?}");
 
 app.Run();

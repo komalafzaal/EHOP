@@ -4,7 +4,7 @@ namespace EHOP.Models.Interfaces
 {
     public interface IProduct 
     {
-        public void addProduct(Product p, string c);
+        public void addProduct(Product p);
         public List<Product> GetWomenProducts();
         public List<Product> GetMenProducts();
         public List<Product> GetElectronicsProducts();

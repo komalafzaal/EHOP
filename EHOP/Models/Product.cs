@@ -21,7 +21,7 @@ namespace EHOP.Models
         public int Quantity { get; set; }
 
         //[ForeignKey("sellerId")]
-        public int SellerId { get; set;}
+        //public int SellerId { get; set;}
         //public virtual Seller Seller { get; set; }
 
     }

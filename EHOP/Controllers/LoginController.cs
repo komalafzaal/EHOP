@@ -1,4 +1,5 @@
 ﻿using EHOP.Models;
+using EHOP.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Net;
@@ -8,13 +9,15 @@ namespace EHOP.Controllers
 {
     public class LoginController : Controller
     {
+        public int sellerId;
         private readonly ILogger<LoginController> _logger;
+        private readonly ISeller _sellerRepository;
 
-        public LoginController(ILogger<LoginController> logger)
+        public LoginController(ILogger<LoginController> logger, ISeller sellerRepository)
         {
             _logger = logger;
+            _sellerRepository = sellerRepository;
         }
-
         
         public IActionResult BuyerLogin()
         {
@@ -70,6 +73,8 @@ namespace EHOP.Controllers
                 data = "visiting first time";
                 HttpContext.Response.Cookies.Append("User", data.ToString());
             }
+            
+
             return View();
 		}
 
@@ -87,7 +92,8 @@ namespace EHOP.Controllers
                 else
                 {
                     HttpContext.Response.Cookies.Append("User", b.Email.ToString());
-                    HttpContext.Response.Cookies.Append("Id", b.Id.ToString());
+                    //HttpContext.Response.Cookies.Append("Id", b.Id.ToString());
+
                     return RedirectToAction(actionName: "HomePageSeller", controllerName: "Home");
                 }
             }

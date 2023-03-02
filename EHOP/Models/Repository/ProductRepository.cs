@@ -11,11 +11,10 @@ namespace EHOP.Models.Repository
 {
     public class ProductRepository : IProduct
     {
-        public void addProduct(Product p, string ? cookieValue)
+        public void addProduct(Product p )
         {
             var db = new EhopContext();
             p.LastModifiedDate = p.CreatedDate = DateTime.Now;
-            p.SellerId = Int32.Parse(cookieValue);
 
             db.Products.Add(p);
             db.SaveChanges();

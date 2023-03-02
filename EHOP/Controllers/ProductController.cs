@@ -13,6 +13,7 @@ namespace EHOP.Controllers
         private readonly ILogger<ProductController> _logger;
         private readonly IProduct _productRepository;
 
+        
         public ProductController(ILogger<ProductController> logger, IProduct productRepository)
         {
             _logger = logger;
@@ -56,9 +57,9 @@ namespace EHOP.Controllers
                 }
             }
             p.imagename = fileName;
-            string ? cookieValue = HttpContext.Request.Cookies["Id"].ToString();
+            //string ? email = HttpContext.Request.Cookies["User"].ToString();
 
-            _productRepository.addProduct(p, cookieValue);
+            _productRepository.addProduct(p);
 
             //if (ModelState.IsValid)
             //{
